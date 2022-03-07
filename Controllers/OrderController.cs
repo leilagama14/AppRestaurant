@@ -26,9 +26,13 @@ namespace AppRestaurant.Controllers
         }
 
         [HttpGet("{id}")]
-        public Order RetrieveOrdersForId(int id)
+        public IActionResult RetrieveOrdersForId(int id)
         {
-            return order.FirstOrDefault(order => order.Id == id);
+            Order order = orders.FirstOrDefault(order => order.Id == id);
+            if(order != null){
+                return Ok(order);
+            }
+            return NotFound();
         }
         
     }
