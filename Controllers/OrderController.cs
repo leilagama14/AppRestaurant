@@ -11,10 +11,10 @@ namespace AppRestaurant.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        // [HttpGet]
-        // public IActionResult IEnumerable<Order> Get()
-        // {
-        //    return Ok();
-        // }
+        [HttpGet]
+        public IEnumerable<Order> Get()
+        {
+           return null;
+        }
     }
 }
