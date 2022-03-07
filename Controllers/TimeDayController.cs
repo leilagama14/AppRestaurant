@@ -12,7 +12,7 @@ namespace AppRestaurant.Controllers
     public class TimeDayController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<TimeDay> Get()
+        public IEnumerable<TimeDay> RetrieveTimeDay()
         {
             return null;
         }

@@ -12,7 +12,7 @@ namespace AppRestaurant.Controllers
     public class OrderController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<Order> Get()
+        public IEnumerable<Order> RetrieveOrder()
         {
            return null;
         }
