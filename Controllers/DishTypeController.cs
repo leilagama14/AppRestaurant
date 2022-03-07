@@ -12,7 +12,7 @@ namespace AppRestaurant.Controllers
     public class DishTypeController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<DishType> Get()
+        public IActionResult IEnumerable<DishType> Get()
         {
             return null;
         }
