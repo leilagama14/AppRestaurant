@@ -14,6 +14,5 @@ namespace AppRestaurant.Models{
         public string Name{get; set;}
 
         public TimeDay TimeDay {get; set;}
-        
     }
 }

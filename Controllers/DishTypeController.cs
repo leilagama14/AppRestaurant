@@ -12,9 +12,9 @@ namespace AppRestaurant.Controllers
     public class WeatherForecastController : ControllerBase
     {
         [HttpGet]
-        public IActionResult IEnumerable<DishType> Get()
+        public IEnumerable<DishType> Get()
         {
-            return Ok();
+            return null;
         }
 
     }

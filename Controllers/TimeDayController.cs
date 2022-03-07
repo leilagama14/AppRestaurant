@@ -12,9 +12,9 @@ namespace AppRestaurant.Controllers
     public class TimeDayController : ControllerBase
     {
         [HttpGet]
-        public IActionResult IEnumerable<TimeDay> Get()
+        public IEnumerable<TimeDay> Get()
         {
-            return Ok();
+            return null;
         }
     }
 }
