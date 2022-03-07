@@ -11,10 +11,25 @@ namespace AppRestaurant.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
+        private static List<Order> orders = new List<Order>();
+        // private RestaurantContext _context;
+        // private IMapper _mapper;
+
+        // public OrderController(RestaurantContext context, Imapper){
+
+        // }
+
         [HttpGet]
-        public IEnumerable<Order> RetrieveOrder()
+        public IActionResult RetrieveOrder()
         {
-           return null;
+            return Ok(orders);
         }
+
+        [HttpGet("{id}")]
+        public Order RetrieveOrdersForId(int id)
+        {
+            return order.FirstOrDefault(order => order.Id == id);
+        }
+        
     }
 }
