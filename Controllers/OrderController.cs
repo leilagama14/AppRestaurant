@@ -12,6 +12,7 @@ namespace AppRestaurant.Controllers
     public class OrderController : ControllerBase
     {
         private static List<Order> orders = new List<Order>();
+        private static int id = 1;
         // private RestaurantContext _context;
         // private IMapper _mapper;
 
