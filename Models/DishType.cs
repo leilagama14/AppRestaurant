@@ -8,7 +8,7 @@ namespace AppRestaurant.Models{
 
         [Key]
         [Required]
-        public int id {get; set;}
+        public int Id {get; set;}
         
         [Required(ErrorMessage = "Dish Name field is required")]
         public string Name{get; set;}

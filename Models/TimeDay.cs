@@ -8,7 +8,7 @@ namespace AppRestaurant.Models{
 
         [Key]
         [Required]
-        public int id {get; set;}
+        public int Id {get; set;}
         
         [Required(ErrorMessage = "The field time of day is required")]
         public string Description{get; set;}
