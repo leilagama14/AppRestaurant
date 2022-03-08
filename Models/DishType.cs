@@ -17,7 +17,7 @@ namespace AppRestaurant.Models{
         [Required(ErrorMessage = "Time of day field is required.")]
         public string TimeOfDay{get; set;}
 
-        public Order Order {get; set;}
+        public virtual Order Order {get; set;}
     }
 
 }
