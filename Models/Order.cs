@@ -16,9 +16,7 @@ namespace AppRestaurant.Models{
         [Required(ErrorMessage = "Dish Name field is Quantity Items")]
         public int QuantityItems {get; set;}            
 
-        public virtual DishType DishType {get; set;}
-
-        public int OrderId {get; set;}
+        public List<DishType> DishTypes { get; set; }
 
     }
 }

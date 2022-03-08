@@ -19,10 +19,14 @@ namespace AppRestaurant.Data{
         }
 
         protected override void OnModelCreating(ModelBuilder builder){
-            builder.Entity<DishType>()
-            .HasOne(dishtype => dishtype.Order)
-            .WithOne(order => order.DishType)
-            .HasForeignKey<Order>(order => order.OrderId);
+
+            modelBuilder.Entity<DishType>()
+            .Property<int>("OrderId");
+
+            builder.Entity<Order>()
+            .HasOne(order => order.DishType)
+            .HasMany(dishtype => dishtype.Order)            
+            .HasForeignKey<DishType>(dishtype => dishtype.OrderId);
         }
               
         public DbSet<DishType> DishTypes { get; set; }

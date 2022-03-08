@@ -16,6 +16,9 @@ namespace AppRestaurant.Models{
         [CustomValidation(typeof(CustomValidationModels), nameof(CustomValidationModels.TimeOfDayValidate))]
         [Required(ErrorMessage = "Time of day field is required.")]
         public string TimeOfDay{get; set;}
+
+        public Order Orders {get; set;}
+
     }
 
 }
