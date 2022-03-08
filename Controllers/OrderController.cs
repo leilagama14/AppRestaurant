@@ -18,9 +18,9 @@ namespace AppRestaurant.Controllers
         // private RestaurantContext _context;
         // private IMapper _mapper;
 
-        public OrderController(RestaurantContext context, Imapper){
+        // public OrderController(RestaurantContext context, Imapper){
 
-        }
+        // }
 
         [HttpGet]
         public IActionResult RetrieveOrder()
