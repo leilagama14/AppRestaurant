@@ -24,7 +24,7 @@ namespace AppRestaurant.Controllers
         public IActionResult AddDish([FromBody] DishType dishtype){
             _context.DishTypes.Add(dishtype);
             _context.SaveChanges();
-            return CreatedAction(nameof(RecoverDishTypeId), new {Id = dishtype.Id}, dishtype)                
+            return CreatedAction(nameof(RecoverDishTypeId), new {Id = dishtype.Id}, dishtype);              
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace AppRestaurant.Controllers
         [HttpGet("{id}")]
         public DishType RecoverDishTypeId(int id)
         {
-            DishType dishtype = _context.DishTypes.FirstOrDefault(dishtype => dishtype.Id == id)
+            DishType dishtype = _context.DishTypes.FirstOrDefault(dishtype => dishtype.Id == id);
             if(dishtype != null){
                 return Ok(dishtype);
             }
