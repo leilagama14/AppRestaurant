@@ -28,7 +28,7 @@ namespace AppRestaurant
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<RestaurantContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(Configuration.GetConnectionString("RestauranteConnection")));
+            services.AddDbContext<RestaurantContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(Configuration.GetConnectionString("RestaurantConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -13,6 +13,11 @@ namespace AppRestaurant.Data{
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         protected override void OnModelCreating(ModelBuilder builder){
             builder.Entity<DishType>()
             .HasOne(dishtype => dishtype.Order)
