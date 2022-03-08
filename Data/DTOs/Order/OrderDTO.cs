@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using AppRestaurant.Models;
 
 namespace AppRestaurant.Data.DTOs.Order{
 
