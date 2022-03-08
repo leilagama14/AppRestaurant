@@ -18,5 +18,7 @@ namespace AppRestaurant.Models{
 
         public DishType DishType {get; set;}
 
+        public int OrderId {get; set;}
+
     }
 }
