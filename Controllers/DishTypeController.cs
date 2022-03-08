@@ -15,13 +15,16 @@ namespace AppRestaurant.Controllers
     public class DishTypeController : ControllerBase
     {
         private RestaurantContext _context;
+        private IMapper _mapper;
 
-        public DishTypeController(RestaurantContext context){
+        public DishTypeController(RestaurantContext context, IMapper mapper){
             _context = context;
+             _mapper = mapper;
         }
 
         [HttpPost]
-        public IActionResult AddDish([FromBody] DishType dishtype){
+        public IActionResult AddDish([FromBody] DishTypeDTO dishTypeDTO){
+            DishType dishtype = _mapper.Map<DishType>(dishTypeDTO);
             _context.DishTypes.Add(dishtype);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecoverDishTypeId), new {Id = dishtype.Id}, dishtype);              

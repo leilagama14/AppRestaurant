@@ -14,13 +14,11 @@ namespace AppRestaurant.Controllers
     public class OrderController : ControllerBase
     {
         private static List<Order> orders = new List<Order>();
-        //private static int id = 1;
-        // private RestaurantContext _context;
-        // private IMapper _mapper;
+        private RestaurantContext _context;
 
-        // public OrderController(RestaurantContext context, Imapper){
-
-        // }
+        public OrderController(RestaurantContext context){
+            _context = context;
+        }
 
         [HttpGet]
         public IActionResult RetrieveOrder()
@@ -37,6 +35,14 @@ namespace AppRestaurant.Controllers
             }
             return NotFound();
         }
+
+        [HttpPost]
+        public IActionResult AddOrder([FromBody] Order order){
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(RetrieveOrdersForId), new {Id = order.Id}, order);              
+        }
+
         
     }
 }

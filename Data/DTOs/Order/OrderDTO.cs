@@ -12,6 +12,9 @@ namespace AppRestaurant.Data.DTOs.Order{
         [CustomValidation(typeof(CustomValidationModels), nameof(CustomValidationModels.TimeOfDayValidate))]
         [Required(ErrorMessage = "Time of day field is required.")]
         public string TimeOfDay{get; set;}    
+
+        [Required(ErrorMessage = "Quantity Items field is required.")]
+        public int QuantityItems{get; set;}
     }
 
 }
