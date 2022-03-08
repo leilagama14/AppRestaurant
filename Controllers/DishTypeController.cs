@@ -4,7 +4,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using AppRestaurant.Models;
 using AppRestaurant.Data;
 using AppRestaurant.Models;
 
