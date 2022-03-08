@@ -24,7 +24,7 @@ namespace AppRestaurant.Controllers
         public IActionResult AddDish([FromBody] DishType dishtype){
             _context.DishTypes.Add(dishtype);
             _context.SaveChanges();
-            return CreatedAction(nameof(RecoverDishTypeId), new {Id = dishtype.Id}, dishtype);              
+            return CreatedAtAction(nameof(RecoverDishTypeId), new {Id = dishtype.Id}, dishtype);              
         }
 
         [HttpGet]
