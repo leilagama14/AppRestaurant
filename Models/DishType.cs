@@ -10,9 +10,14 @@ namespace AppRestaurant.Models{
         [Required]
         public int Id {get; set;}
         
-        [Required(ErrorMessage = "Dish Name field is required")]
+        [Required(ErrorMessage = "Dish Name field is required.")]
         public string Name{get; set;}
 
-        public TimeDay TimeDay {get; set;}
+        [CustomValidation(typeof(CustomValidationModels), nameof(CustomValidationModels.TimeOfDayValidate))]
+        [Required(ErrorMessage = "Time of day field is required.")]
+        public string TimeOfDay{get; set;}
+
+        public Order Order {get; set;}
     }
+
 }
