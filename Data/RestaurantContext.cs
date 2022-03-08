@@ -7,9 +7,9 @@ using AppRestaurant.Models;
 
 namespace AppRestaurant.Data{
 
-    public class RestauranteContext : DbContext{
+    public class RestaurantContext : DbContext{
 
-        public RestauranteContext(DbContextOptions<RestauranteContext> opt) : base (opt)
+        public RestaurantContext(DbContextOptions<RestaurantContext> opt) : base (opt)
         {
         }
 
