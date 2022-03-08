@@ -34,7 +34,7 @@ namespace AppRestaurant.Controllers
         }
 
         [HttpGet("{id}")]
-        public DishType RecoverDishTypeId(int id)
+        public IActionResult RecoverDishTypeId(int id)
         {
             DishType dishtype = _context.DishTypes.FirstOrDefault(dishtype => dishtype.Id == id);
             if(dishtype != null){
