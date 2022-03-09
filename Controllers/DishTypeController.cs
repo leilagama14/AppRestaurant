@@ -1,8 +1,5 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using System.Linq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AppRestaurant.Data;
 using AppRestaurant.Data.DTOs.DishType;
@@ -23,7 +20,7 @@ namespace AppRestaurant.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddDish([FromBody] DishTypeDTO dishTypeDTO){
+        public IActionResult AddDish([FromBody] CreateDishTypeDTO dishTypeDTO){
             DishType dishtype = _mapper.Map<DishType>(dishTypeDTO);
             _context.DishTypes.Add(dishtype);
             _context.SaveChanges();

@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AppRestaurant.Models;
 
-namespace AppRestaurant.Data{
+namespace AppRestaurant.Data
+{
 
     public class RestaurantContext : DbContext{
 
@@ -21,12 +18,14 @@ namespace AppRestaurant.Data{
         protected override void OnModelCreating(ModelBuilder builder){
 
             builder.Entity<Order>()
-            .HasOne(order => order.DishType)
-            .WithOne(dishtype => dishtype.Order);
+            .HasOne(order => order.Meal)
+            .WithOne(m => m.Order)
+            .HasForeignKey<Meal>(m => m.Id);
         }
               
-        public DbSet<DishType> DishTypes { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Meal> Meals { get; set; }
+        public DbSet<DishType> DishTypes { get; set; }
     }
     
 }

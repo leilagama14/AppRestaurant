@@ -15,10 +15,13 @@ namespace AppRestaurant.Controllers
     {
         private static List<Order> orders = new List<Order>();
         private RestaurantContext _context;
+        private IMapper _mapper;
 
-        public OrderController(RestaurantContext context){
+        public OrderController(RestaurantContext context, IMapper mapper){
             _context = context;
+             _mapper = mapper;
         }
+
 
         [HttpGet]
         public IActionResult RetrieveOrder()

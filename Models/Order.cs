@@ -21,8 +21,9 @@ namespace AppRestaurant.Models{
         [Required(ErrorMessage = "Time of day field is required.")]
         public string TimeOfDay{get; set;}          
         
-        public virtual DishType DishType { get; set; }
+        public virtual Meal Meal { get; set; }
 
+        public int IdMeal{get; set;}  
 
     }
 }
