@@ -34,6 +34,7 @@ namespace AppRestaurant.Migrations
             modelBuilder.Entity("AppRestaurant.Models.Meal", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -67,23 +68,26 @@ namespace AppRestaurant.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdMeal")
+                        .IsUnique();
+
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("AppRestaurant.Models.Meal", b =>
-                {
-                    b.HasOne("AppRestaurant.Models.Order", "Order")
-                        .WithOne("Meal")
-                        .HasForeignKey("AppRestaurant.Models.Meal", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("AppRestaurant.Models.Order", b =>
                 {
+                    b.HasOne("AppRestaurant.Models.Meal", "Meal")
+                        .WithOne("Order")
+                        .HasForeignKey("AppRestaurant.Models.Order", "IdMeal")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Meal");
+                });
+
+            modelBuilder.Entity("AppRestaurant.Models.Meal", b =>
+                {
+                    b.Navigation("Order");
                 });
 #pragma warning restore 612, 618
         }

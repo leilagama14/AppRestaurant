@@ -17,10 +17,10 @@ namespace AppRestaurant.Data
 
         protected override void OnModelCreating(ModelBuilder builder){
 
-            builder.Entity<Order>()
-            .HasOne(order => order.Meal)
-            .WithOne(m => m.Order)
-            .HasForeignKey<Meal>(m => m.Id);
+            builder.Entity<Meal>()
+            .HasOne(meal => meal.Order)
+            .WithOne(order => order.Meal)
+            .HasForeignKey<Order>(order => order.IdMeal);
         }
               
         public DbSet<Order> Orders { get; set; }

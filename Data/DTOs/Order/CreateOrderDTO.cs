@@ -1,9 +1,9 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using AppRestaurant.Models;
 using System.Collections.Generic;
 
-namespace AppRestaurant.Data.DTOs.Order{
+namespace AppRestaurant.Data.DTOs.Order
+{
 
     public class CreateOrderDTO{
         
