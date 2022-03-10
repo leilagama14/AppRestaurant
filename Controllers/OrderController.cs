@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AppRestaurant.Models;
 using AppRestaurant.Data;
+using AppRestaurant.Data.DTOs.Order;
 
 namespace AppRestaurant.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class OrderController : ControllerBase
-    {
-        private static List<Order> orders = new List<Order>();
+    {        
         private RestaurantContext _context;
         private IMapper _mapper;
 
@@ -22,30 +22,30 @@ namespace AppRestaurant.Controllers
              _mapper = mapper;
         }
 
-
         [HttpGet]
-        public IActionResult RetrieveOrder()
+        public IEnumerable<Order> RetrieveOrder()
         {
-            return Ok(orders);
+            return _context.Orders;
         }
 
         [HttpGet("{id}")]
         public IActionResult RetrieveOrdersForId(int id)
         {
-            Order order = orders.FirstOrDefault(order => order.Id == id);
+            Order order = _context.Orders.FirstOrDefault(order => order.Id == id);
             if(order != null){
-                return Ok(order);
+                ReadyOrderDTO orderDTO = _mapper.Map<ReadyOrderDTO>(order);
+                return Ok(orderDTO);
             }
             return NotFound();
         }
 
         [HttpPost]
-        public IActionResult AddOrder([FromBody] Order order){
+        public IActionResult AddOrder([FromBody] CreateOrderDTO orderDTO){
+            Order order = _mapper.Map<Order>(orderDTO);
             _context.Orders.Add(order);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RetrieveOrdersForId), new {Id = order.Id}, order);              
         }
-
         
     }
 }
